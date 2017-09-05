@@ -70,6 +70,9 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /bitnami/rabbitmq
+          {{- if and .Values.persistence.enabled .Values.persistence.subPath }}
+          subPath: {{ .Values.persistence.subPath }}
+          {{- end }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
       volumes:

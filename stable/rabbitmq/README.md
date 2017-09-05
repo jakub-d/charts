@@ -59,6 +59,7 @@ The following tables lists the configurable parameters of the RabbitMQ chart and
 | `serviceType`               | Kubernetes Service type                                 | `ClusterIP`                                              |
 | `persistence.enabled`       | Use a PVC to persist data                               | `true`                                                   |
 | `persistence.existingClaim` | Use an existing PVC to persist data                     | `nil`                                                    |
+| `persistence.subPath`       | Mount a subPath of the existing PVC                     | `nil`                                                    |
 | `persistence.storageClass`  | Storage class of backing PVC                            | `nil` (uses alpha storage class annotation)              |
 | `persistence.accessMode`    | Use volume as ReadOnly or ReadWrite                     | `ReadWriteOnce`                                          |
 | `persistence.size`          | Size of data volume                                     | `8Gi`                                                    |
