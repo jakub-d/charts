@@ -37,6 +37,8 @@ The following tables lists the configurable parameters of the consul chart and t
 | `EncryptGossip`         | Whether or not gossip is encrypted    | `true`                                                     |
 | `Storage`               | Persistent volume size                | `1Gi`                                                      |
 | `StorageClass`          | Persistent volume storage class       | `nil`                                                      |
+| `StorageExistingClaim`  | Name of existing persistent volume    | `nil`                                                      |
+| `StorageSubPath`        | Subdirectory of the volume to mount   | `nil`                                                      |
 | `HttpPort`              | Consul http listening port            | `8500`                                                     |
 | `Resources`             | Container resource requests and limits| `{}`                                                       |
 | `RpcPort`               | Consul rpc listening port             | `8400`                                                     |

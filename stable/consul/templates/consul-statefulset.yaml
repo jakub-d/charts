@@ -104,6 +104,9 @@ spec:
         volumeMounts:
         - name: datadir
           mountPath: /var/lib/consul
+          {{- if .Values.StorageSubPath }}
+          subPath: {{ .Values.StorageSubPath }}
+          {{- end }}
         - name: gossip-key
           mountPath: /etc/consul/secrets
           readOnly: true
@@ -173,6 +176,12 @@ spec:
       - name: gossip-key
         secret:
           secretName: {{ template "consul.fullname" . }}-gossip-key
+      {{- if .Values.StorageExistingClaim }}
+      - name: datadir
+        persistentVolumeClaim:
+          claimName: {{ .Values.StorageExistingClaim }}
+      {{- end }}
+{{- if .Values.Storage}}
   volumeClaimTemplates:
   - metadata:
       name: datadir
@@ -190,3 +199,4 @@ spec:
       storageClassName: "{{ .Values.StorageClass }}"
     {{- end }}
     {{- end }}
+{{- end }}
